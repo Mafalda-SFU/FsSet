@@ -1,0 +1,34 @@
+{
+  "name": "@mafalda/pidsfile",
+  "version": "0.0.0",
+  "description": "`pidfile` for multiple processes",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest  --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mafalda-SFU/PidsFile.git"
+  },
+  "keywords": [
+    "pidfile",
+    "pid",
+    "process",
+    "lock",
+    "filelock"
+  ],
+  "author": "Jesús Leganés-Combarro 'piranna' <piranna@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mafalda-SFU/PidsFile/issues"
+  },
+  "homepage": "https://github.com/Mafalda-SFU/PidsFile#readme",
+  "dependencies": {
+    "proper-lockfile": "^4.1.2"
+  },
+  "devDependencies": {
+    "jest-cli": "^27.0.6",
+    "tempy": "^1.0.1"
+  }
+}
