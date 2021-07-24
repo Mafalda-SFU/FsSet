@@ -1,7 +1,6 @@
 import {
   closeSync, ftruncateSync, openSync, readSync, writeSync
 } from 'fs'
-import {EOL} from 'os'
 
 import {lock, lockSync} from 'proper-lockfile'
 
@@ -164,7 +163,7 @@ export default class FsSet
     const length = readSync(this.#fd, buffer, 0, buffer.length, 0)
 
     let result = buffer.toString('utf8', 0, length)
-    .split(EOL)
+    .split(`\0`)
     .filter(filterEmpty)
 
     if(this.#filterAfterRead)
@@ -176,6 +175,6 @@ export default class FsSet
   #write = data =>
   {
     ftruncateSync(this.#fd)
-    writeSync(this.#fd, data?.join(EOL) || '', 0)
+    writeSync(this.#fd, data?.join(`\0`) || '', 0)
   }
 }
