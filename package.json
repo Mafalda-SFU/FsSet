@@ -1,7 +1,7 @@
 {
-  "name": "@mafalda/pidsfile",
+  "name": "@mafalda/fsset",
   "version": "1.0.0",
-  "description": "`pidfile` for multiple processes",
+  "description": "Filesystem-backed implementation of JavaScript `Set` class",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -9,21 +9,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mafalda-SFU/PidsFile.git"
+    "url": "git+https://github.com/Mafalda-SFU/FsSet.git"
   },
   "keywords": [
     "pidfile",
     "pid",
     "process",
     "lock",
-    "filelock"
+    "filelock",
+    "set",
+    "filesystem",
+    "file"
   ],
   "author": "Jesús Leganés-Combarro 'piranna' <piranna@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mafalda-SFU/PidsFile/issues"
+    "url": "https://github.com/Mafalda-SFU/FsSet/issues"
   },
-  "homepage": "https://github.com/Mafalda-SFU/PidsFile#readme",
+  "homepage": "https://github.com/Mafalda-SFU/FsSet#readme",
   "dependencies": {
     "proper-lockfile": "^4.1.2"
   },
