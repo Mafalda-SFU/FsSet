@@ -2,7 +2,7 @@ import {
   closeSync, ftruncateSync, openSync, readSync, writeSync
 } from 'fs'
 
-import {lock, lockSync} from 'proper-lockfile'
+import {lockSync} from 'proper-lockfile'
 
 
 const DEFAULT_BUFFER_SIZE = 16384  // 16KB, Node.js default
@@ -45,28 +45,28 @@ export default class FsSet
 
   get length()
   {
-    return this.#lock(this.#read).length
+    return this.#wrap(this.#read).length
   }
 
 
   add(value)
   {
-    return this.#lock(this.#add, value)
+    return this.#wrap(this.#add, value)
   }
 
   clear()
   {
-    return this.#lock(this.#write)
+    return this.#wrap(this.#write)
   }
 
   delete(value)
   {
-    return this.#lock(this.#delete, value)
+    return this.#wrap(this.#delete, value)
   }
 
   has(value)
   {
-    return this.#lock(this.#read).includes(value)
+    return this.#wrap(this.#read).includes(value)
   }
 
 
@@ -85,10 +85,7 @@ export default class FsSet
 
   async lock(func, ...rest)
   {
-    if(this.#closed) throw new SyntaxError('closed')
-
-    const release = !this.#locks
-      && await lock(this.#filePath, this.#lockfileOptions)
+    const release = this.#lock()
 
     this.#locks++
 
@@ -137,12 +134,18 @@ export default class FsSet
     return true
   }
 
-  #lock(func, ...rest)
+  #lock()
   {
     if(this.#closed) throw new SyntaxError('closed')
 
-    const release = !this.#locks
-      && lockSync(this.#filePath, this.#lockfileOptions)
+    return this.#locks
+      ? null
+      : lockSync(this.#filePath, this.#lockfileOptions)
+  }
+
+  #wrap(func, ...rest)
+  {
+    const release = this.#lock()
 
     try {
       return func(...rest)

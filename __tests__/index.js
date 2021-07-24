@@ -84,7 +84,10 @@ test('lock', function()
 {
   const set = new FsSet(file())
 
-  const promise = set.lock(function(){})
+  const promise = set.lock(function()
+  {
+    set.add('foo')
+  })
 
   return expect(promise).resolves.toMatchInlineSnapshot(`undefined`);
 });
