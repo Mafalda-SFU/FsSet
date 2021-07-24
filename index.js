@@ -20,7 +20,7 @@ export default class FsSet
     filePath,
     {
       bufferSize = DEFAULT_BUFFER_SIZE,
-      filterAfterRead,
+      cleanAfterRead,
       lockfile
     } = {bufferSize: DEFAULT_BUFFER_SIZE}
   ){
@@ -34,7 +34,7 @@ export default class FsSet
 
     this.#buffer          = Buffer.alloc(bufferSize)
     this.#filePath        = filePath
-    this.#filterAfterRead = filterAfterRead
+    this.#cleanAfterRead  = cleanAfterRead
     this.#lockfileOptions = lockfile
   }
 
@@ -109,7 +109,7 @@ export default class FsSet
   #buffer
   #closed
   #fd
-  #filterAfterRead
+  #cleanAfterRead
   #filePath
   #lockfileOptions
   #locks = 0
@@ -166,8 +166,8 @@ export default class FsSet
     .split(`\0`)
     .filter(filterEmpty)
 
-    if(this.#filterAfterRead)
-      result = result.filter(this.#filterAfterRead)
+    if(this.#cleanAfterRead)
+      result = result.filter(this.#cleanAfterRead)
 
     return result
   }

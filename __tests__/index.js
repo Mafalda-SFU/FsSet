@@ -24,7 +24,7 @@ test('arguments', function()
 {
   const options =
   {
-    filterAfterRead(){
+    cleanAfterRead(){
       return true
     }
   }
