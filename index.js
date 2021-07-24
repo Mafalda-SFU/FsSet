@@ -142,7 +142,8 @@ export default class FsSet
   {
     if(this.#closed) throw new SyntaxError('closed')
 
-    const release = !this.#locks && lockSync(this.#filePath)
+    const release = !this.#locks
+      && lockSync(this.#filePath, this.#lockfileOptions)
 
     try {
       return func(...rest)
