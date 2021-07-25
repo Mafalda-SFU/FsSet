@@ -1,6 +1,6 @@
 import {file} from 'tempy'
 
-import FsSet from "..";
+import FsSet from "../lib";
 
 
 test('exports', function()
@@ -31,7 +31,11 @@ test('arguments', function()
 
   const set = new FsSet(file(), options)
 
-  expect(set).toMatchInlineSnapshot(`FsSet {}`);
+  expect(set).toMatchObject({
+    _closed: undefined,
+    _filePath: expect.any(String),
+    _lockfile: undefined
+  });
   expect(set).toHaveLength(0);
 });
 
@@ -68,16 +72,14 @@ test('lifecycle', function()
   set.close()
   set.close() // Idempotent
 
-  result = set.lock()
-
   function func()
   {
-    set.length
+    result = set.lock()
   }
 
   expect(func).toThrowErrorMatchingInlineSnapshot(`"closed"`)
 
-  return expect(result).rejects.toThrowErrorMatchingInlineSnapshot(`"closed"`)
+  return expect(result).toBe(false)
 });
 
 test('lock', function()
@@ -89,5 +91,5 @@ test('lock', function()
     set.add('foo')
   })
 
-  return expect(promise).resolves.toMatchInlineSnapshot(`undefined`);
+  return expect(promise).toMatchInlineSnapshot(`undefined`);
 });

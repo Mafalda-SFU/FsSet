@@ -3,7 +3,10 @@
   "version": "1.1.1",
   "description": "Filesystem-backed implementation of JavaScript `Set` class",
   "type": "module",
-  "main": "index.js",
+  "exports":{
+    "./": "./lib/index.js",
+    "./async": "./lib/async.js"
+  },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest  --coverage"
   },
@@ -33,5 +36,10 @@
   "devDependencies": {
     "jest-cli": "^27.0.6",
     "tempy": "^1.0.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ]
   }
 }
