@@ -1,6 +1,7 @@
 import {
   closeSync, ftruncateSync, openSync, readSync, writeSync
 } from 'fs'
+import {EOL} from 'os'
 
 import {lockSync} from 'proper-lockfile'
 
@@ -21,8 +22,9 @@ export default class FsSet
     {
       bufferSize = DEFAULT_BUFFER_SIZE,
       cleanAfterRead,
+      eol = EOL,
       lockfile
-    } = {bufferSize: DEFAULT_BUFFER_SIZE}
+    } = {bufferSize: DEFAULT_BUFFER_SIZE, eol: EOL}
   ){
     try {
       this.#fd = openSync(filePath, 'r+')
@@ -32,7 +34,10 @@ export default class FsSet
       this.#fd = openSync(filePath, 'w+')
     }
 
+    if(eol === null) eol = '\0'
+
     this.#buffer          = Buffer.alloc(bufferSize)
+    this.#eol             = eol
     this.#filePath        = filePath
     this.#cleanAfterRead  = cleanAfterRead
     this.#lockfileOptions = lockfile
@@ -105,6 +110,7 @@ export default class FsSet
 
   #buffer
   #closed
+  #eol
   #fd
   #cleanAfterRead
   #filePath
@@ -166,7 +172,7 @@ export default class FsSet
     const length = readSync(this.#fd, buffer, 0, buffer.length, 0)
 
     let result = buffer.toString('utf8', 0, length)
-    .split(`\0`)
+    .split(this.#eol)
     .filter(filterEmpty)
 
     if(this.#cleanAfterRead)
@@ -178,6 +184,6 @@ export default class FsSet
   #write = data =>
   {
     ftruncateSync(this.#fd)
-    writeSync(this.#fd, data?.join(`\0`) || '', 0)
+    writeSync(this.#fd, data?.join(this.#eol) || '', 0)
   }
 }

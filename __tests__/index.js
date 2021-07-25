@@ -82,7 +82,7 @@ test('lifecycle', function()
 
 test('lock', function()
 {
-  const set = new FsSet(file())
+  const set = new FsSet(file(), {eol: null})
 
   const promise = set.lock(function()
   {
