@@ -5,7 +5,8 @@
   "type": "module",
   "exports": {
     "./": "./lib/index.js",
-    "./async": "./lib/async.js"
+    "./async": "./lib/async.js",
+    "./waiting": "./lib/waiting.js"
   },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest  --coverage"
@@ -31,6 +32,7 @@
   },
   "homepage": "https://github.com/Mafalda-SFU/FsSet#readme",
   "dependencies": {
+    "fs-ext": "^2.0.0",
     "proper-lockfile": "^4.1.2"
   },
   "devDependencies": {
