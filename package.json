@@ -4,7 +4,8 @@
   "description": "Filesystem-backed implementation of JavaScript `Set` class",
   "type": "module",
   "exports": {
-    "./": "./lib/index.js",
+    "./package.json": "./package.json",
+    ".": "./lib/index.js",
     "./async": "./lib/async.js",
     "./waiting": "./lib/waiting.js"
   },
