@@ -32,9 +32,9 @@ test('arguments', function()
   const set = new FsSet(file(), options)
 
   expect(set).toMatchObject({
-    _closed: undefined,
     _filePath: expect.any(String),
-    _lockfile: undefined
+    _lockfile: undefined,
+    closed: expect.any(Boolean)
   });
   expect(set).toHaveLength(0);
 });
