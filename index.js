@@ -130,7 +130,7 @@ export default class FsSet
   {
     const values = this.#read()
 
-    const index = values.indexOf(value)
+    const index = values.indexOf(value.toString())
     if(index < 0) return false
 
     values.splice(index, 1)
