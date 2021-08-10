@@ -79,7 +79,7 @@ test('lifecycle', function()
 
   expect(func).toThrowErrorMatchingInlineSnapshot(`"closed"`)
 
-  return expect(result).toBe(false)
+  expect(result).toBe(false)
 });
 
 test('lock', function()

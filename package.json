@@ -10,7 +10,7 @@
     "./waiting": "./lib/waiting.js"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest  --coverage"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "tempy": "^1.0.1"
   },
   "jest": {
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "lib/**/*.js"
     ]
