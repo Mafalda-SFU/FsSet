@@ -1,6 +1,6 @@
 {
   "name": "@mafalda/fsset",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Filesystem-backed implementation of JavaScript `Set` class",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
