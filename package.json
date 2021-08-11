@@ -10,6 +10,8 @@
     "./waiting.js": "./lib/waiting.js"
   },
   "scripts": {
+    "build": "babel src --out-dir lib",
+    "prepare": "npm run build",
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "repository": {
@@ -37,6 +39,9 @@
     "proper-lockfile": "^4.1.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
     "jest-cli": "^27.0.6",
     "tempy": "^1.0.1"
   },
