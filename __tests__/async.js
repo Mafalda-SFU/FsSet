@@ -1,6 +1,6 @@
-import {file} from 'tempy'
+const {file} = require('tempy')
 
-import FsSetAsync from "../lib/async";
+const FsSetAsync = require("../async");
 
 
 test('lock', function()

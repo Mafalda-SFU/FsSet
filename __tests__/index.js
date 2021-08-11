@@ -1,6 +1,6 @@
-import {file} from 'tempy'
+const {file} = require('tempy')
 
-import FsSet from "../lib";
+const FsSet = require("..");
 
 
 test('exports', function()

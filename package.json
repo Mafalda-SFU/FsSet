@@ -2,16 +2,7 @@
   "name": "@mafalda/fsset",
   "version": "2.1.0",
   "description": "Filesystem-backed implementation of JavaScript `Set` class",
-  "type": "module",
-  "exports": {
-    "./package.json": "./package.json",
-    ".": "./lib/index.js",
-    "./async.js": "./lib/async.js",
-    "./waiting.js": "./lib/waiting.js"
-  },
   "scripts": {
-    "build": "babel src --out-dir lib",
-    "prepare": "npm run build",
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "repository": {
@@ -48,7 +39,7 @@
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "lib/**/*.js"
+      "*.js"
     ]
   }
 }

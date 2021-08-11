@@ -1,9 +1,9 @@
-import {lock} from 'proper-lockfile'
+const {lock} = require('proper-lockfile')
 
-import FsSetAbstract from './abstract.js'
+const FsSetAbstract = require('./abstract.js')
 
 
-export default class FsSetAsync extends FsSetAbstract
+module.exports = class FsSetAsync extends FsSetAbstract
 {
   //
   // Public API

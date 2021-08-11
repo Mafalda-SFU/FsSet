@@ -1,6 +1,6 @@
-import {file} from 'tempy'
+const {file} = require('tempy')
 
-import FsSetWaiting from "../lib/waiting";
+const FsSetWaiting = require("../waiting");
 
 
 test('lock', function()

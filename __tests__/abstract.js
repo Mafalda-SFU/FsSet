@@ -1,6 +1,6 @@
-import {file} from 'tempy'
+const {file} = require('tempy')
 
-import FsSetAbstract from "../lib/abstract";
+const FsSetAbstract = require("../abstract");
 
 
 test('abstract class', function()
