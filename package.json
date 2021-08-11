@@ -6,8 +6,8 @@
   "exports": {
     "./package.json": "./package.json",
     ".": "./lib/index.js",
-    "./async": "./lib/async.js",
-    "./waiting": "./lib/waiting.js"
+    "./async.js": "./lib/async.js",
+    "./waiting.js": "./lib/waiting.js"
   },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
