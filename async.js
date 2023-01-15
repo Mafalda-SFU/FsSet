@@ -17,11 +17,14 @@ export default class FsSetAsync extends FsSetAbstract
 
     this.#locks++
 
-    try {
+    try
+    {
       if(this.closed) throw new SyntaxError('closed')
 
       return await func(...rest)
-    } finally {
+    }
+    finally
+    {
       this.#locks--
 
       await release?.()

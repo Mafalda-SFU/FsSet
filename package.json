@@ -18,6 +18,10 @@
     }
   },
   "scripts": {
+    "docs": "cp README.md docs/ && jsdoc2md lib/**/*.js > docs/API.md",
+    "lint": "eslint .",
+    "prepare": "husky install",
+    "pretest": "npm run lint",
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
   },
   "repository": {
@@ -48,8 +52,12 @@
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
     "@babel/plugin-transform-modules-commonjs": "^7.20.11",
+    "@mafalda/eslint-config": "^0.0.1",
     "bytenode": "github:Mafalda-SFU/bytenode",
+    "eslint": "^8.31.0",
+    "husky": "^8.0.3",
     "jest-cli": "^29.3.1",
+    "jsdoc-to-markdown": "^8.0.0",
     "tempy": "^3.0.0"
   },
   "jest": {
@@ -57,5 +65,8 @@
     "collectCoverageFrom": [
       "*.js"
     ]
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

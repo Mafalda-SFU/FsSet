@@ -17,11 +17,14 @@ export default class FsSet extends FsSetAbstract
 
     this.#locks++
 
-    try {
+    try
+    {
       if(this.closed) throw new SyntaxError('closed')
 
       return func(...rest)
-    } finally {
+    }
+    finally
+    {
       this.#locks--
 
       release?.()

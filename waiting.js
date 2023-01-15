@@ -19,9 +19,12 @@ export default class FsSetWaiting extends FsSetAbstract
   async lock(func, ...rest)
   {
     if(!this.#locks)
-      try {
+      try
+      {
         await promisedFcntl(this._fd, F_SETLKW, F_WRLCK)
-      } catch (error) {
+      }
+      catch (error)
+      {
         // Probably only case is `EINTR`: command was interrupted by a signal
         if(error.code !== 'EBADF') throw error
 
@@ -30,9 +33,12 @@ export default class FsSetWaiting extends FsSetAbstract
 
     this.#locks++
 
-    try {
+    try
+    {
       return await func(...rest)
-    } finally {
+    }
+    finally
+    {
       if(!--this.#locks) await promisedFcntl(this._fd, F_SETLKW, F_UNLCK)
     }
   }

@@ -35,9 +35,12 @@ export default class FsSetAbstract
     if(this.constructor === FsSetAbstract)
       throw new Error('`FsSetAbstract` is an abstract class')
 
-    try {
+    try
+    {
       this._fd = openSync(filePath, 'r+')
-    } catch (error) {
+    }
+    catch (error)
+    {
       if(error.code !== 'ENOENT') throw error
 
       this._fd = openSync(filePath, 'w+')
@@ -165,8 +168,8 @@ export default class FsSetAbstract
     const length = readSync(this._fd, buffer, 0, buffer.length, 0)
 
     let result = buffer.toString('utf8', 0, length)
-    .split(this.#eol)
-    .filter(filterEmpty)
+      .split(this.#eol)
+      .filter(filterEmpty)
 
     if(this.#cleanAfterRead)
       result = result.filter(this.#cleanAfterRead)
