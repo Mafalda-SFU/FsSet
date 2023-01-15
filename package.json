@@ -2,8 +2,23 @@
   "name": "@mafalda/fsset",
   "version": "2.2.0",
   "description": "Filesystem-backed implementation of JavaScript `Set` class",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./async": {
+      "import": "./async.js",
+      "require": "./dist/async.cjs"
+    },
+    "./waiting": {
+      "import": "./waiting.js",
+      "require": "./dist/waiting.cjs"
+    }
+  },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
   },
   "repository": {
     "type": "git",
@@ -30,11 +45,12 @@
     "proper-lockfile": "^4.1.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
-    "jest-cli": "^27.0.6",
-    "tempy": "^1.0.1"
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
+    "bytenode": "github:Mafalda-SFU/bytenode",
+    "jest-cli": "^29.3.1",
+    "tempy": "^3.0.0"
   },
   "jest": {
     "collectCoverage": true,

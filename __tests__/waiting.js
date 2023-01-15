@@ -1,11 +1,11 @@
-const {file} = require('tempy')
+import {temporaryFile} from 'tempy'
 
-const FsSetWaiting = require("../waiting");
+import FsSetWaiting from "@mafalda/fsset/waiting"
 
 
 test('lock', function()
 {
-  const set = new FsSetWaiting(file(), {eol: null})
+  const set = new FsSetWaiting(temporaryFile(), {eol: null})
 
   const promise = set.lock(function()
   {
@@ -17,7 +17,7 @@ test('lock', function()
 
 test('closed', function()
 {
-  const set = new FsSetWaiting(file(), {eol: null})
+  const set = new FsSetWaiting(temporaryFile(), {eol: null})
 
   set.close()
 
@@ -28,7 +28,7 @@ test('closed', function()
 
 test('lifecycle', async function()
 {
-  const set = new FsSetWaiting(file())
+  const set = new FsSetWaiting(temporaryFile())
 
   let result
 

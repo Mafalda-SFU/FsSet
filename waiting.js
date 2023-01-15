@@ -1,14 +1,16 @@
-const {promisify} = require('util')
+import {promisify} from 'util'
 
-const {constants: {F_SETLKW, F_UNLCK, F_WRLCK}, fcntl} = require('fs-ext')
+import {constants, fcntl} from 'fs-ext'
 
-const FsSetAbstract = require('./abstract.js')
+import FsSetAbstract from './abstract.js'
+
+const {F_SETLKW, F_UNLCK, F_WRLCK} = constants
 
 
 const promisedFcntl = promisify(fcntl)
 
 
-module.exports = class FsSetWaiting extends FsSetAbstract
+export default class FsSetWaiting extends FsSetAbstract
 {
   //
   // Public API

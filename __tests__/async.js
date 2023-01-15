@@ -1,11 +1,11 @@
-const {file} = require('tempy')
+import {temporaryFile} from 'tempy'
 
-const FsSetAsync = require("../async");
+import FsSetAsync from "@mafalda/fsset/async"
 
 
 test('lock', function()
 {
-  const set = new FsSetAsync(file(), {eol: null})
+  const set = new FsSetAsync(temporaryFile(), {eol: null})
 
   const promise = set.lock(function()
   {
@@ -17,7 +17,7 @@ test('lock', function()
 
 test('closed', function()
 {
-  const set = new FsSetAsync(file(), {eol: null})
+  const set = new FsSetAsync(temporaryFile(), {eol: null})
 
   set.close()
 

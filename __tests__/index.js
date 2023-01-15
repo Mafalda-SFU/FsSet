@@ -1,6 +1,6 @@
-const {file} = require('tempy')
+import {temporaryFile} from 'tempy'
 
-const FsSet = require("..");
+import FsSet from "@mafalda/fsset"
 
 
 test('exports', function()
@@ -16,7 +16,7 @@ test('no arguments', function()
   }
 
   expect(func).toThrowErrorMatchingInlineSnapshot(
-    `"The \\"path\\" argument must be of type string or an instance of Buffer or URL. Received undefined"`
+    `"The "path" argument must be of type string or an instance of Buffer or URL. Received undefined"`
   )
 });
 
@@ -29,7 +29,7 @@ test('arguments', function()
     }
   }
 
-  const set = new FsSet(file(), options)
+  const set = new FsSet(temporaryFile(), options)
 
   expect(set).toMatchObject({
     _filePath: expect.any(String),
@@ -41,7 +41,7 @@ test('arguments', function()
 
 test('lifecycle', function()
 {
-  const set = new FsSet(file())
+  const set = new FsSet(temporaryFile())
 
   let result
 
@@ -84,7 +84,7 @@ test('lifecycle', function()
 
 test('lock', function()
 {
-  const set = new FsSet(file(), {eol: null})
+  const set = new FsSet(temporaryFile(), {eol: null})
 
   const promise = set.lock(function()
   {

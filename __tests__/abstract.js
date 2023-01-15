@@ -1,12 +1,12 @@
-const {file} = require('tempy')
+import {temporaryFile} from 'tempy'
 
-const FsSetAbstract = require("../abstract");
+import FsSetAbstract from "../abstract"
 
 
 test('abstract class', function()
 {
   function func() {
-    new FsSetAbstract(file())
+    new FsSetAbstract(temporaryFile())
   }
 
   expect(func).toThrowErrorMatchingInlineSnapshot(

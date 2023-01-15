@@ -1,5 +1,5 @@
-const {closeSync, ftruncateSync, openSync, readSync, writeSync} = require('fs')
-const {EOL} = require('os')
+import {closeSync, ftruncateSync, openSync, readSync, writeSync} from 'fs'
+import {EOL} from 'os'
 
 
 const DEFAULT_BUFFER_SIZE = 16384  // 16KB, Node.js default
@@ -20,7 +20,8 @@ function includes(value, result)
   return result.includes(value)
 }
 
-module.exports = class FsSetAbstract
+
+export default class FsSetAbstract
 {
   constructor(
     filePath,
