@@ -64,7 +64,8 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "*.js"
-    ]
+    ],
+    "transform": {}
   },
   "engines": {
     "node": ">=16.0.0"
