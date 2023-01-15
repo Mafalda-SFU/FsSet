@@ -18,8 +18,9 @@
     }
   },
   "scripts": {
-    "docs": "cp README.md docs/ && jsdoc2md lib/**/*.js > docs/API.md",
+    "docs": "cp README.md docs/ && jsdoc2md *.js > docs/API.md",
     "lint": "eslint .",
+    "predocs": "mkdir -p docs/",
     "prepare": "husky install",
     "pretest": "npm run lint",
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
