@@ -1,4 +1,13 @@
+.github/
+.husky/
 __tests__/
+bytenodeify/
 coverage/
+dist/
+docs/
+scripts/
 src/
 *.tgz
+.eslint*
+babel.config.json
+example.mjs
