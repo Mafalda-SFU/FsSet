@@ -50,14 +50,15 @@
     "proper-lockfile": "^4.1.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
-    "@mafalda/eslint-config": "^0.0.1",
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "@mafalda-sfu/eslint-config": "^0.3.0",
+    "@mafalda-sfu/eslint-config-jest": "^0.0.1",
     "bytenode": "github:Mafalda-SFU/bytenode",
-    "eslint": "^8.31.0",
+    "eslint": "^8.42.0",
     "husky": "^8.0.3",
-    "jest-cli": "^29.3.1",
+    "jest-cli": "^29.5.0",
     "jsdoc-to-markdown": "^8.0.0",
     "tempy": "^3.0.0"
   },
