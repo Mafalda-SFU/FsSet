@@ -1,5 +1,5 @@
 {
-  "name": "@mafalda/fsset",
+  "name": "@mafalda-sfu/fsset",
   "version": "2.2.0",
   "description": "Filesystem-backed implementation of JavaScript `Set` class",
   "type": "module",

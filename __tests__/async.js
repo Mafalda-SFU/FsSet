@@ -1,6 +1,6 @@
 import {temporaryFile} from 'tempy'
 
-import FsSetAsync from "@mafalda/fsset/async"
+import FsSetAsync from "@mafalda-sfu/fsset/async"
 
 
 test('lock', function()

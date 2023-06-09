@@ -1,6 +1,6 @@
 import {temporaryFile} from 'tempy'
 
-import FsSet from "@mafalda/fsset"
+import FsSet from "@mafalda-sfu/fsset"
 
 
 test('exports', function()

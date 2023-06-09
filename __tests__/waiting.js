@@ -1,6 +1,6 @@
 import {temporaryFile} from 'tempy'
 
-import FsSetWaiting from "@mafalda/fsset/waiting"
+import FsSetWaiting from "@mafalda-sfu/fsset/waiting"
 
 
 test('lock', function()
