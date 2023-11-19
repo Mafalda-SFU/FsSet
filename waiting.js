@@ -39,7 +39,8 @@ export default class FsSetWaiting extends FsSetAbstract
     }
     finally
     {
-      if(!--this.#locks) await promisedFcntl(this._fd, F_SETLKW, F_UNLCK)
+      if(!(--this.#locks || this.closed))
+        await promisedFcntl(this._fd, F_SETLKW, F_UNLCK)
     }
   }
 

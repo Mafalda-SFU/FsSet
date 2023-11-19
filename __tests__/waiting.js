@@ -70,3 +70,15 @@ test('lifecycle', async function()
 
   expect(result).toBe(false)
 })
+
+test('close while locked', async function()
+{
+  const set = new FsSetWaiting(temporaryFile())
+
+  const promise = set.lock(function()
+  {
+    set.close()
+  })
+
+  await expect(promise).resolves.toBeUndefined()
+})
