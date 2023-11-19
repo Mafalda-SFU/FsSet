@@ -1,6 +1,6 @@
 {
   "name": "@mafalda-sfu/fsset",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Filesystem-backed implementation of JavaScript `Set` class",
   "type": "module",
   "exports": {
