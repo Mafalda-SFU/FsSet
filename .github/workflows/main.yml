@@ -8,12 +8,12 @@ on:
     branches: [ main ]
 
 jobs:
-  build-in-maintenance-versions:
+  build-in-maintained-versions:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [18]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -28,7 +28,7 @@ jobs:
         cache: 'npm'
         node-version: ${{ matrix.node-version }}
 
-    - run: npm ci
+    - run: npm ci --verbose
     - run: npm test
 
   build:
@@ -45,7 +45,7 @@ jobs:
         cache: 'npm'
         node-version: latest
 
-    - run: npm ci
+    - run: npm ci --verbose
     - run: npm test -- --coverageReporters=json-summary
 
     - name: "Get total tests coverage"
@@ -81,7 +81,7 @@ jobs:
         cache: 'npm'
         node-version: latest
 
-    - run: npm ci
+    - run: npm ci --verbose
     - run: npm run docs
 
     - uses: cpina/github-action-push-to-another-repository@v1.5.1
