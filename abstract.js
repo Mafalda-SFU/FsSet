@@ -114,6 +114,12 @@ export default class FsSetAbstract
     this._fd = -1
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  lock()
+  {
+    throw new Error('Not implemented')
+  }
+
 
   //
   // Protected API
