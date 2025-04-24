@@ -11,6 +11,8 @@ export default class FsSet extends FsSetAbstract
 
   lock(func, ...rest)
   {
+    if(this.closed) throw new SyntaxError('closed')
+
     const release = this.#locks
       ? null
       : lockSync(this._filePath, this._lockfile)

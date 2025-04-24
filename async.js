@@ -11,6 +11,8 @@ export default class FsSetAsync extends FsSetAbstract
 
   async lock(func, ...rest)
   {
+    if(this.closed) throw new SyntaxError('closed')
+
     const release = this.#locks
       ? null
       : await lock(this._filePath, this._lockfile)

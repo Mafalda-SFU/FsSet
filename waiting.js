@@ -18,6 +18,8 @@ export default class FsSetWaiting extends FsSetAbstract
 
   async lock(func, ...rest)
   {
+    if(this.closed) throw new SyntaxError('closed')
+
     if(!this.#locks)
       try
       {
