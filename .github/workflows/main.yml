@@ -8,12 +8,12 @@ on:
     branches: [ main ]
 
 jobs:
-  build-in-maintained-versions:
+  build-in-maintenance-versions:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [18]
+        node-version: [20, 22]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
