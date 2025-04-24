@@ -115,7 +115,7 @@ export default class FsSetAbstract
   }
 
   // eslint-disable-next-line class-methods-use-this
-  lock()
+  lock(func, ...rest)
   {
     throw new Error('Not implemented')
   }
