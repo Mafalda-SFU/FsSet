@@ -46,20 +46,20 @@
   },
   "homepage": "https://github.com/Mafalda-SFU/FsSet#readme",
   "dependencies": {
-    "fs-ext": "^2.0.0",
+    "fs-ext": "^2.1.1",
     "proper-lockfile": "^4.1.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.0",
-    "@babel/core": "^7.23.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.23.3",
-    "@mafalda-sfu/eslint-config": "^0.6.3",
+    "@babel/cli": "^7.27.0",
+    "@babel/core": "^7.26.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
+    "@mafalda-sfu/eslint-config": "^0.7.0",
     "@mafalda-sfu/eslint-config-jest": "^0.0.1",
     "bytenode": "github:Mafalda-SFU/bytenode",
     "eslint": "^8.54.0",
     "husky": "^9.1.7",
     "jest-cli": "^29.7.0",
-    "jsdoc-to-markdown": "^8.0.0",
+    "jsdoc-to-markdown": "^9.1.1",
     "tempy": "^3.1.0"
   },
   "engines": {
