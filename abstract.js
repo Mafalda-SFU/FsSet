@@ -1,5 +1,5 @@
-import {closeSync, ftruncateSync, openSync, readSync, writeSync} from 'fs'
-import {EOL} from 'os'
+import {closeSync, ftruncateSync, openSync, readSync, writeSync} from 'node:fs'
+import {EOL} from 'node:os'
 
 
 const DEFAULT_BUFFER_SIZE = 16384  // 16KB, Node.js default
