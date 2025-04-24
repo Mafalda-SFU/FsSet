@@ -21,7 +21,7 @@
     "docs": "cp README.md docs/ && jsdoc2md *.js > docs/API.md",
     "lint": "eslint .",
     "predocs": "mkdir -p docs/",
-    "prepare": "husky install",
+    "prepare": "husky",
     "pretest": "npm run lint",
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
   },
@@ -57,7 +57,7 @@
     "@mafalda-sfu/eslint-config-jest": "^0.0.1",
     "bytenode": "github:Mafalda-SFU/bytenode",
     "eslint": "^8.54.0",
-    "husky": "^8.0.3",
+    "husky": "^9.1.7",
     "jest-cli": "^29.7.0",
     "jsdoc-to-markdown": "^8.0.0",
     "tempy": "^3.1.0"
